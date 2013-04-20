@@ -14,4 +14,6 @@ led_blink.ass:	led_blink.hex
 	avr-objdump -S -d led_blink.o > led_blink.ass
 	
 led_blink-upload:	led_blink.hex
-	avrdude ${AVRDUDEFLAGS} -U flash:w:led_blink.hex:a
+	avrdude ${AVRDUDEFLAGS} -e
+	sleep 0.1
+	avrdude ${AVRDUDEFLAGS} -D -U flash:w:led_blink.hex:a

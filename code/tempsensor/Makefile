@@ -14,4 +14,6 @@ tempsensor.ass:	tempsensor.hex
 	avr-objdump -S -d tempsensor.o > tempsensor.ass
 	
 tempsensor-upload:	tempsensor.hex
-	avrdude ${AVRDUDEFLAGS} -U flash:w:tempsensor.hex:a
+	avrdude ${AVRDUDEFLAGS} -e
+	sleep 0.1
+	avrdude ${AVRDUDEFLAGS} -D -U flash:w:tempsensor.hex:a

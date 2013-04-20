@@ -14,4 +14,6 @@ initialload.ass:	initialload.hex
 	avr-objdump -S -d initialload.o > initialload.ass
 	
 initialload-upload:	initialload.hex
-	avrdude ${AVRDUDEFLAGS} -U flash:w:initialload.hex:a
+	avrdude ${AVRDUDEFLAGS} -e
+	sleep 0.1
+	avrdude ${AVRDUDEFLAGS} -D -U flash:w:initialload.hex:a

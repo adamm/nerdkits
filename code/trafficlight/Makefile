@@ -14,4 +14,6 @@ trafficlight.ass:	trafficlight.hex
 	avr-objdump -S -d trafficlight.o > trafficlight.ass
 	
 trafficlight-upload:	trafficlight.hex
-	avrdude ${AVRDUDEFLAGS} -U flash:w:trafficlight.hex:a
+	avrdude ${AVRDUDEFLAGS} -e
+	sleep 0.1
+	avrdude ${AVRDUDEFLAGS} -D -U flash:w:trafficlight.hex:a

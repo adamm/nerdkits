@@ -14,4 +14,6 @@ dip_arithmetic.ass:	dip_arithmetic.hex
 	avr-objdump -S -d dip_arithmetic.o > dip_arithmetic.ass
 	
 dip_arithmetic-upload:	dip_arithmetic.hex
-	avrdude ${AVRDUDEFLAGS} -U flash:w:dip_arithmetic.hex:a
+	avrdude ${AVRDUDEFLAGS} -e
+	sleep 0.1
+	avrdude ${AVRDUDEFLAGS} -D -U flash:w:dip_arithmetic.hex:a
