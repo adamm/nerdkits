@@ -1,0 +1,41 @@
+(modified for ATmega328P!)
+
+EFUSE = 0x05
+0	-
+0	-
+0	-
+0	-
+0	-
+1	BODLEVEL2	(sets V_BOT=2.7)
+0	BODLEVEL1		""
+1	BODLEVEL0		""
+
+HFUSE = 0xd2
+1	RSTDISBL
+1	DWEN
+0	SPIEN
+1	WDTON
+0	EESAVE
+0	BOOTSZ1	(1024 word boot size)
+1	BOOTSZ0		""
+0	BOOTRST (jump to bootloader)
+
+LFUSE = 0xf7
+1	CKDIV8
+1	CKOUT
+1	SUT1	(65ms start-up delay)
+1	SUT0		""
+0	CKSEL3	(full swing crystal oscillator)
+1	CKSEL2		""
+1	CKSEL1		""
+1	CKSEL0		""
+
+LOCK = 0x2f
+0	-
+0	-
+1	BLB12	(can't self-program over bootloader)
+0	BLB11		""
+1	BLB02	(no restrictions on programming application code area)
+1	BLB01		""
+1	LB2	(no memory lock)
+1	LB1		""
