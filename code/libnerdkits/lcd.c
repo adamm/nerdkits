@@ -138,14 +138,12 @@ void lcd_goto_position(uint8_t row, uint8_t col) {
   // 20x4 LCD: offsets 0, 0x40, 20, 0x40+20
   uint8_t row_offset = 0;
   switch(row) {
-    case 0: row_offset = 0; break;
-    case 1: row_offset = 0x40; break;
-    case 2: row_offset = 20; break;
-    case 3: row_offset = 0x40+20; break;
+    case 0: row_offset = (0x80 | (0x00 + col)); break;
+    case 1: row_offset = (0x80 | (0x40 + col)); break;
+    case 2: row_offset = (0x80 | (20 + col)); break;
+    case 3: row_offset = (0x80 | ((0x40+20) + col)); break;
   }
-  
-  
-  lcd_write_byte(0x80 | (row_offset + col));
+  lcd_write_byte(row_offset);
 }
 
 void lcd_line_one()   { lcd_goto_position(0, 0); }

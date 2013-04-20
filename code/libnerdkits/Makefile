@@ -1,4 +1,4 @@
-GCCFLAGS=-g -Os -Wall -mmcu=atmega168 
+GCCFLAGS=-g -O0 -Wall -mmcu=atmega168 
 
 all: delay.o lcd.o uart.o
 
